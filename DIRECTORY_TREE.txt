@@ -1,0 +1,288 @@
+AD-RES LEX V72 WEB - COMPLETE DIRECTORY STRUCTURE
+==================================================
+
+PROJECT ROOT: /home/ubuntu/ad-res-lex-v72-web
+Total Size: 474MB | Source Code: 73 files | Build: 1.1MB
+
+📁 ad-res-lex-v72-web/
+│
+├── 🖥️  CLIENT (Frontend React Application)
+│   ├── 📁 public/                    ← Static assets (images, fonts, etc.)
+│   │   └── .gitkeep                  (ready for images)
+│   │
+│   ├── 📁 src/                       ← React source code (main development)
+│   │   ├── 📁 components/            ← Reusable UI components
+│   │   │   ├── 📁 ui/                ← shadcn/ui components (50+)
+│   │   │   │   ├── button.tsx
+│   │   │   │   ├── card.tsx
+│   │   │   │   ├── badge.tsx
+│   │   │   │   ├── dialog.tsx
+│   │   │   │   ├── tabs.tsx
+│   │   │   │   ├── table.tsx
+│   │   │   │   ├── sidebar.tsx
+│   │   │   │   ├── sheet.tsx
+│   │   │   │   ├── dropdown-menu.tsx
+│   │   │   │   ├── popover.tsx
+│   │   │   │   ├── tooltip.tsx
+│   │   │   │   └── ... (40+ more)
+│   │   │   │
+│   │   │   ├── Navigation.tsx        ← Header/nav bar
+│   │   │   ├── ErrorBoundary.tsx     ← Error handling
+│   │   │   ├── ManusDialog.tsx       ← Dialog wrapper
+│   │   │   └── Map.tsx               ← Google Maps
+│   │   │
+│   │   ├── 📁 pages/                 ← Page-level components (7 pages)
+│   │   │   ├── Home.tsx              ← Hero & overview
+│   │   │   ├── FrameworksOverview.tsx ← V72 summary
+│   │   │   ├── EntityRelationFramework.tsx ← 14D modeling
+│   │   │   ├── AgentModels.tsx       ← Verified agents
+│   │   │   ├── ResponseStrategies.tsx ← JR-DR synergy
+│   │   │   ├── VerificationReport.tsx ← Metrics
+│   │   │   └── NotFound.tsx          ← 404 page
+│   │   │
+│   │   ├── 📁 contexts/              ← React context providers
+│   │   │   └── ThemeContext.tsx      ← Dark/light mode
+│   │   │
+│   │   ├── 📁 hooks/                 ← Custom React hooks (3)
+│   │   │   ├── useComposition.ts
+│   │   │   ├── useMobile.tsx
+│   │   │   └── usePersistFn.ts
+│   │   │
+│   │   ├── 📁 lib/                   ← Utility functions
+│   │   │   └── utils.ts              ← Helpers
+│   │   │
+│   │   ├── App.tsx                   ← Main router & layout
+│   │   ├── main.tsx                  ← React entry point
+│   │   ├── index.css                 ← Global styles (Tailwind)
+│   │   └── const.ts                  ← Constants
+│   │
+│   └── index.html                    ← HTML template
+│
+├── 🖧 SERVER (Express Backend)
+│   └── index.ts                      ← Express server
+│       ├── Static file serving
+│       ├── Client-side routing fallback
+│       └── Runs on port 3000
+│
+├── 🔗 SHARED (Shared Code)
+│   └── const.ts                      ← Shared constants
+│
+├── 🔧 SCRIPTS (Automation)
+│   └── rsync-sync.sh                 ← Rsync synchronization
+│       ├── Push to Codespace
+│       ├── Pull from Codespace
+│       ├── Watch & auto-sync
+│       └── Status monitoring
+│
+├── 🐳 .DEVCONTAINER (GitHub Codespace)
+│   └── devcontainer.json             ← Codespace config
+│       ├── Node.js 20 image
+│       ├── Auto-install deps
+│       ├── Port forwarding
+│       └── VS Code extensions
+│
+├── 🔄 .GITHUB (GitHub Configuration)
+│   └── workflows/
+│       └── sync-codespace.yml        ← Auto-build on push
+│
+├── 📦 PATCHES (Dependency Patches)
+│   └── wouter@3.7.1.patch            ← Router patch
+│
+├── 📚 BUILD OUTPUT (Production)
+│   └── dist/
+│       └── public/                   ← Built website (1.1MB)
+│           ├── index.html
+│           ├── assets/
+│           │   ├── index-*.js        ← Main bundle
+│           │   ├── index-*.css       ← Styles
+│           │   └── *.js              ← Component chunks
+│           └── ...
+│
+├── 📄 CONFIGURATION FILES
+│   ├── vite.config.ts                ← Vite build config
+│   ├── tsconfig.json                 ← TypeScript config
+│   ├── tsconfig.node.json            ← TS for Node
+│   ├── package.json                  ← Dependencies & scripts
+│   ├── pnpm-lock.yaml                ← Locked versions
+│   ├── components.json               ← shadcn/ui config
+│   ├── tailwind.config.ts            ← Tailwind config
+│   └── postcss.config.ts             ← PostCSS config
+│
+├── 📖 DOCUMENTATION
+│   ├── README.md                     ← Project overview
+│   ├── DIRECTORY_STRUCTURE.md        ← Detailed structure
+│   ├── DIRECTORY_TREE.txt            ← This file (ASCII art)
+│   ├── RSYNC_SETUP.md                ← Rsync guide
+│   ├── SYNC_GUIDE.md                 ← Git sync guide
+│   └── SSH_SETUP_GUIDE.md            ← SSH configuration
+│
+├── 📦 DEPENDENCIES (474MB)
+│   └── node_modules/                 ← npm packages
+│       ├── react/
+│       ├── tailwindcss/
+│       ├── vite/
+│       ├── typescript/
+│       └── ... (500+ packages)
+│
+└── 🔐 GIT
+    └── .git/                         ← Version control
+
+
+DEVELOPMENT ENVIRONMENT STRUCTURE
+==================================
+
+🖥️  CODE-SERVER (Local IDE)
+   URL: https://8329-i1k7qmvjohh5kvg1wbqmt-1df655df.us2.manus.computer
+   Password: 8e95bf977c0f0847
+   Port: 8329
+   
+   ├── File Browser
+   │   └── /home/ubuntu/ad-res-lex-v72-web/
+   │       ├── Edit React files
+   │       ├── View build output
+   │       └── Run terminal commands
+   │
+   └── Terminal
+       ├── pnpm dev              (start dev server)
+       ├── pnpm build            (build for production)
+       └── ./scripts/rsync-sync.sh (sync to Codespace)
+
+
+🌐 LIVE WEBSITE (Dev Server)
+   URL: https://3000-i1k7qmvjohh5kvg1wbqmt-1df655df.us2.manus.computer
+   Port: 3000
+   Status: Running
+   
+   ├── / (Home)
+   │   └── Hero section + overview
+   │
+   ├── /frameworks
+   │   └── V72 frameworks summary
+   │
+   ├── /entity-relation
+   │   └── 14D agent state modeling
+   │
+   ├── /agents
+   │   └── Verified agent definitions
+   │
+   ├── /responses
+   │   └── JR-DR synergy strategies
+   │
+   ├── /verification
+   │   └── Quality metrics & report
+   │
+   └── /404
+       └── Not found page
+
+
+☁️  GITHUB CODESPACE (Cloud IDE)
+   Repository: https://github.com/cogpy/ad-res-lex-v72-web
+   
+   ├── Web Browser
+   │   └── Full VS Code in browser
+   │
+   ├── SSH Access
+   │   └── Terminal via SSH
+   │
+   └── Auto-Sync
+       └── Rsync from code-server
+
+
+QUICK REFERENCE
+===============
+
+📍 Key Paths:
+   /home/ubuntu/ad-res-lex-v72-web              (project root)
+   /home/ubuntu/ad-res-lex-v72-web/client/src   (frontend source)
+   /home/ubuntu/ad-res-lex-v72-web/client/src/pages    (pages)
+   /home/ubuntu/ad-res-lex-v72-web/client/src/components (components)
+   /home/ubuntu/ad-res-lex-v72-web/dist/public  (build output)
+
+🔗 Access URLs:
+   Code-Server:  https://8329-i1k7qmvjohh5kvg1wbqmt-1df655df.us2.manus.computer
+   Live Site:    https://3000-i1k7qmvjohh5kvg1wbqmt-1df655df.us2.manus.computer
+   GitHub:       https://github.com/cogpy/ad-res-lex-v72-web
+
+⚙️  Common Commands:
+   pnpm dev                    (start dev server)
+   pnpm build                  (build for production)
+   pnpm preview                (preview build)
+   ./scripts/rsync-sync.sh push (sync to Codespace)
+   ./scripts/rsync-sync.sh watch (auto-sync)
+   git push origin main        (commit to GitHub)
+
+
+STATISTICS
+==========
+
+Source Code:        73 files
+Frontend Pages:     7 pages
+UI Components:      50+ (shadcn/ui)
+Custom Components:  4
+React Hooks:        3
+Total Dependencies: 500+ packages
+Project Size:       474MB (mostly node_modules)
+Source Size:        448KB
+Build Output:       1.1MB
+Build Time:         ~5 seconds
+Dev Server Port:    3000
+Code-Server Port:   8329
+
+
+DEVELOPMENT WORKFLOW
+====================
+
+1. EDIT IN CODE-SERVER
+   ├── Open: https://8329-...
+   ├── Password: 8e95bf977c0f0847
+   ├── Edit files in client/src/
+   └── Auto-reload in dev server
+
+2. VIEW IN LIVE WEBSITE
+   ├── Open: https://3000-...
+   ├── See changes instantly
+   └── Test functionality
+
+3. SYNC TO CODESPACE (Optional)
+   ├── ./scripts/rsync-sync.sh watch
+   ├── Changes sync automatically
+   └── Test in cloud environment
+
+4. COMMIT TO GITHUB
+   ├── git add .
+   ├── git commit -m "Feature: description"
+   └── git push origin main
+
+5. DEPLOY
+   ├── Click Publish in Manus UI
+   └── Website goes live
+
+
+FILE ORGANIZATION PRINCIPLES
+=============================
+
+✅ Components:     Reusable UI elements (50+ shadcn/ui)
+✅ Pages:          Full-page components (7 pages)
+✅ Contexts:       Global state management (theme)
+✅ Hooks:          Custom React logic (3 hooks)
+✅ Utils:          Helper functions
+✅ Styles:         Global CSS + Tailwind
+✅ Public:         Static assets (images, fonts)
+✅ Build:          Production output (dist/)
+✅ Scripts:        Automation (rsync sync)
+✅ Docs:           Documentation (README, guides)
+
+
+NEXT STEPS
+==========
+
+1. ✅ Project initialized
+2. ✅ Website deployed
+3. ✅ Code-Server configured
+4. ✅ GitHub Codespace ready
+5. ✅ Rsync sync configured
+6. 📝 Start developing!
+   - Edit files in code-server
+   - View changes in live website
+   - Commit to GitHub
+   - Deploy to production

@@ -1,5 +1,5 @@
-import { Link } from "wouter";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { Moon, Sun, Menu, X, Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [location] = useLocation();
 
   const navItems = [
     { label: "Overview", href: "/" },
@@ -16,6 +17,11 @@ export default function Navigation() {
     { label: "Responses", href: "/responses" },
     { label: "Verification", href: "/verification" },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/") return location === "/";
+    return location.startsWith(href);
+  };
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
@@ -31,15 +37,32 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
-              <a className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent/50">
+              <span className={`px-3 py-2 text-sm font-medium transition-colors rounded-md cursor-pointer ${
+                isActive(item.href) 
+                  ? "text-foreground bg-accent" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+              }`}>
                 {item.label}
-              </a>
+              </span>
             </Link>
           ))}
         </div>
 
-        {/* Mobile Menu Button & Theme Toggle */}
+        {/* Actions */}
         <div className="flex items-center gap-2">
+          {/* GitHub Link */}
+          <a 
+            href="https://github.com/cogpy/ad-res-j7" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hidden sm:flex"
+          >
+            <Button variant="ghost" size="icon" className="rounded-lg">
+              <Github className="w-5 h-5" />
+            </Button>
+          </a>
+
+          {/* Theme Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -53,6 +76,7 @@ export default function Navigation() {
             )}
           </Button>
 
+          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
@@ -74,14 +98,30 @@ export default function Navigation() {
           <div className="container py-4 space-y-2">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href}>
-                <a
-                  className="block px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent/50"
+                <span
+                  className={`block px-3 py-2 text-sm font-medium transition-colors rounded-md cursor-pointer ${
+                    isActive(item.href)
+                      ? "text-foreground bg-accent"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </span>
               </Link>
             ))}
+            <div className="border-t border-border pt-2 mt-2">
+              <a 
+                href="https://github.com/cogpy/ad-res-j7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent/50"
+              >
+                <Github className="w-4 h-4" />
+                GitHub Repository
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
         </div>
       )}
